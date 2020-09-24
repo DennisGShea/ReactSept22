@@ -1,13 +1,28 @@
 import React from 'react'
-import Welcome from './components/common/Welcome'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom"
+import Home from './scenes/Home'
+import Courses from './scenes/Courses' 
 import './App.css'
+
 
 function App() {
   return (
     <div className="App">
-      <Welcome name="Henry" />
+      <Router>
+        <Switch>
+          <Route  exact path="/courses" component={Courses} />
+          <Route  path="/courses/:id" component={Courses} />
+          <Route  exact path="/" component={Home} />
+        </Switch>
+      </Router>
     </div>
   )
 }
 
 export default App
+
+
